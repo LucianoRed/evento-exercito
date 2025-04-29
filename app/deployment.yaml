@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercito-app
+  namespace: exercito-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exercito-app
+  template:
+    metadata:
+      labels:
+        app: exercito-app
+    spec:
+      containers:
+      - name: exercito-app
+        image: docker.io/lasher/exercito-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080 # Mude se a sua imagem escutar outra porta
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercito-app-service
+  namespace: exercito-app
+spec:
+  selector:
+    app: exercito-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080 # Mesma porta do container

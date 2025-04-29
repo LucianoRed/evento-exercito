@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: exercito-app-route
+  namespace: exercito-app
+spec:
+  to:
+    kind: Service
+    name: exercito-app-service
+  port:
+    targetPort: 8080 # a mesma porta do container
+  tls:
+    termination: edge
+  wildcardPolicy: None
